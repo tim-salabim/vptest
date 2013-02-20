@@ -30,6 +30,37 @@
         <h1>vptest</h1>
 
 <p>this is only a test for potential use in teaching</p>
+
+<h1>Homework I - Mr.X and Ms.Y</h1>
+
+<p>the code for the answer is as follows:</p>
+
+<div class="highlight"><pre>library<span class="p">(</span>latticeExtra<span class="p">)</span>
+library<span class="p">(</span>reshape2<span class="p">)</span>
+library<span class="p">(</span>Hmisc<span class="p">)</span>
+
+tip <span class="o">&lt;-</span> read.csv<span class="p">(</span><span class="s">"/media/windows/tappelhans/uni/marburg/phd_programme/workshops/data_vis/data/tippspiel.csv"</span><span class="p">)</span>
+
+tip <span class="o">&lt;-</span> tip<span class="p">[,</span> <span class="m">4</span>:<span class="m">1</span><span class="p">]</span>
+mtip <span class="o">&lt;-</span> melt<span class="p">(</span>tip<span class="p">)</span>
+
+mtip<span class="p">$</span>value <span class="o">&lt;-</span> ifelse<span class="p">(</span>mtip<span class="p">$</span>value <span class="o">==</span> <span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> ifelse<span class="p">(</span>mtip<span class="p">$</span>value <span class="o">==</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">))</span>
+
+barchart<span class="p">(</span>mtip<span class="p">,</span> stack <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> as.table <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> xlab <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#box.ratio = 6,</span>
+         scales <span class="o">=</span> list<span class="p">(</span>x <span class="o">=</span> list<span class="p">(</span>at <span class="o">=</span> c<span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">18</span><span class="p">),</span> tck <span class="o">=</span> c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">),</span>
+                                labels <span class="o">=</span> c<span class="p">(</span><span class="s">"Heimsieg"</span><span class="p">,</span> <span class="s">"Unentschieden"</span><span class="p">,</span> <span class="s">"Auswärtssieg"</span><span class="p">))),</span>
+         col <span class="o">=</span> c<span class="p">(</span><span class="s">"#687f5f"</span><span class="p">,</span> <span class="s">"#ffffff"</span><span class="p">,</span> <span class="s">"#abc9a0"</span><span class="p">),</span>
+         panel <span class="o">=</span> <span class="kr">function</span><span class="p">(</span><span class="m">...</span><span class="p">)</span> <span class="p">{</span>
+           grid.rect<span class="p">(</span>gp<span class="o">=</span>gpar<span class="p">(</span>fill <span class="o">=</span> <span class="s">"#c3e3bf"</span><span class="p">))</span>
+           panel.barchart<span class="p">(</span><span class="m">...</span><span class="p">,</span> border <span class="o">=</span> <span class="s">"transparent"</span><span class="p">)</span>
+           <span class="p">}</span>
+         <span class="p">)</span>
+
+table<span class="p">(</span>mtip<span class="p">)</span>
+latex<span class="p">(</span>table<span class="p">(</span>mtip<span class="p">))</span>
+</pre></div>
+
+<p>Hope we both get a A+!!</p>
       </section>
     </div>
     <footer>
